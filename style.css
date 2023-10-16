@@ -1,6 +1,11 @@
 :root {
   color: white;
   font-family: 'Roboto', sans-serif;
+
+  @media (pointer:none),
+  (pointer:coarse) {
+    font-size: 40px;
+  }
 }
 
 body {
@@ -8,6 +13,11 @@ body {
   display: flex;
   flex-direction: column;
   padding: 20px 20%;
+
+  @media (pointer:none),
+  (pointer:coarse) {
+    padding: 20px 20px;
+  }
 }
 
 header {
