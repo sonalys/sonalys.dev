@@ -1,0 +1,46 @@
+* {
+  --tlMargin: 0.5rem;
+  --tlMargin2: -0.5rem;
+}
+
+.timelineEntry {
+  margin: 0;
+  display: flex;
+}
+
+.timelineDate {
+  margin-top: 0.2rem;
+  margin-right: 10px;
+}
+
+.timelineIcon {
+  background-color: var(--color-primary);
+  border-radius: 25px;
+  border: 1px var(--color-primary) solid;
+  width: 10px;
+  height: 10px;
+}
+
+.timelineLine {
+  margin-bottom: var(--tlMargin2);
+  flex-grow: 2;
+  border-left: 1px solid var(--color-primary);
+}
+
+li:last-child .timelineLine {
+  display: none;
+}
+
+.timelineLineContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  margin-top: var(--tlMargin);
+}
+
+.timeline-card {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px black solid; */
+}
