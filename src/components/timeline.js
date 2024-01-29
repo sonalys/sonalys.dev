@@ -55,7 +55,7 @@ I also implemented from scratch a pipeline for building and digitally signing th
           `}
         </TimelineCard>
       </TimelineEntry>
-      <TimelineEntry date="2020.01.01">
+      <TimelineEntry date="2019.01.01">
         <TimelineCard title="Raccoon Digital Marketing">
           {`[ Go Python ReactJS TypeScript Postgres Prometheus Grafana Kubernetes GCP ]
 

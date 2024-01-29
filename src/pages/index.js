@@ -27,7 +27,7 @@ const IndexPage = () => (
       <h2 style={{ marginTop: 0 }}>Software Engineer</h2>
       <p>
         Hello, welcome!
-        Here you can find more information about be and my experience, as well with some ocasional blog posts.
+        Here you can find more information about be and my experience, as well with some occasional blog posts.
       </p>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5 }}>
         {moreLinks.map((link, i) => (
