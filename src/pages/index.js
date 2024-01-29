@@ -15,7 +15,7 @@ const utmParameters = ``
 
 const SocialLink = ({ link }) => {
   return <a href={`${link.url}${utmParameters}`} style={{ display: 'inline-flex', textDecoration: 'none' }}>
-    {link.icon && <img src={`${link.icon}`} height='20px' style={{ marginBottom: 0, marginRight: 3 }} />}
+    {link.icon && <img src={`${link.icon}`} alt="" height='20px' style={{ marginBottom: 0, marginRight: 3 }} />}
     {link.text}
   </a>
 }
@@ -27,7 +27,7 @@ const IndexPage = () => (
       <h2 style={{ marginTop: 0 }}>Software Engineer</h2>
       <p>
         Hello, welcome!
-        Here you can find more information about be and my experience, as well with some occasional blog posts.
+        Here you can find more information about me and my experience, as well as some occasional blog posts.
       </p>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5 }}>
         {moreLinks.map((link, i) => (
