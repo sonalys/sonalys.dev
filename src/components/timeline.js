@@ -29,7 +29,7 @@ const TimelineCard = ({ title, children}) => {
 const Timeline = () => {
   return <div>
     <ul style={{ textAlign: 'start', listStyle: 'none' }}>
-      <TimelineEntry date="2021.01.01">
+      <TimelineEntry date="2021.01">
         <TimelineCard title="Rockspoon">
           {`[ Go Mongo NewRelic ReactJS NextJS ElasticSearch Kubernetes Azure ]
 
@@ -42,7 +42,7 @@ Intensive use of **Mongo features**, such as **change-stream**, **pipeline-aggre
 **time-series** collections.`}
         </TimelineCard>
       </TimelineEntry>
-      <TimelineEntry date="2020.01.01">
+      <TimelineEntry date="2020.01">
         <TimelineCard title="Fluxonaut">
           {`[ C# .NET MVVM Websocket WPF Protobuf AWS ]
 
@@ -55,7 +55,7 @@ I also implemented from scratch a pipeline for building and digitally signing th
           `}
         </TimelineCard>
       </TimelineEntry>
-      <TimelineEntry date="2019.01.01">
+      <TimelineEntry date="2019.01">
         <TimelineCard title="Raccoon Digital Marketing">
           {`[ Go Python ReactJS TypeScript Postgres Prometheus Grafana Kubernetes GCP ]
 
