@@ -11,10 +11,8 @@ const moreLinks = [
   { icon: "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico", text: "Contact", url: "mailto:me@sonalys.dev" },
 ]
 
-const utmParameters = ``
-
 const SocialLink = ({ link }) => {
-  return <a href={`${link.url}${utmParameters}`} style={{ display: 'inline-flex', textDecoration: 'none' }}>
+  return <a href={`${link.url}`} style={{ display: 'inline-flex', textDecoration: 'none' }}>
     {link.icon && <img src={`${link.icon}`} alt="" height='20px' style={{ marginBottom: 0, marginRight: 3 }} />}
     {link.text}
   </a>

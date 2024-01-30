@@ -3,27 +3,27 @@ import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
-// import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 const IndexPage = () => {
-  // const { allMdx } = useStaticQuery(
-  //   graphql`
-  //     query {
-  //       allMdx {
-  //         nodes {
-  //           frontmatter {
-  //             title
-  //             slug
-  //             date(formatString: "MMMM DD, YYYY")
-  //           }
-  //         }
-  //       }
-  //     }`
-  // )
+  const { allMdx } = useStaticQuery(
+    graphql`
+      query {
+        allMdx {
+          nodes {
+            frontmatter {
+              title
+              slug
+              date(formatString: "MMMM DD, YYYY")
+            }
+          }
+        }
+      }`
+  )
   return <Layout>
     <div className={styles.textCenter}>
-      <h1 style={{ marginBottom: 0 }}>{""}</h1>
-      {/* <BlogPage /> */}
+      <h1 style={{ marginBottom: 0 }}>Blog</h1>
+      {allMdx.nodes.forEach(({frontmatter}) => <p>aa {frontmatter.title}</p>)}
     </div>
   </Layout>
 }

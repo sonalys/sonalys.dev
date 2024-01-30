@@ -1,7 +1,10 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/
- */
+import { Prism } from 'prism-react-renderer';(typeof global !== 'undefined' ? global : window).Prism = Prism
+require("prismjs/components/prism-applescript")
 
-// You can delete this file if you're not using it
+require('prismjs/components/prism-go')
+require('prismjs/components/prism-javascript')
+require('prismjs/components/prism-python')
+require('prismjs/components/prism-markdown')
+require('prismjs/components/prism-diff')
+require('prismjs/components/prism-css')
+require('prismjs/components/prism-rust')
