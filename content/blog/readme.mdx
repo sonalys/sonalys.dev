@@ -2,27 +2,18 @@
 slug: /hello-world
 title: How to avoid bad code from slipping into your repositories
 date: 2021-08-14
-author: Brion Mario
-authorAvatar: https://avatars.githubusercontent.com/u/25959096?v=4
 description: In this blog, I will go through the process of preventing code that violates lint rules from being slipped into repositories using Lint Staged and Husky.
 excerpt: In this blog, I will go through the process of preventing code that violates lint rules from being slipped into repositories using Lint Staged and Husky.
 category: technology
 keywords:
-  - husky"
+  - husky
   - lint-staged
   - git-hooks
   - front-end
 featuredImage: how-to-avoid-bad-code-from-slipping-into-your-repositories-0.png
-embeddedImagesLocal:
-  - how-to-avoid-bad-code-from-slipping-into-your-repositories-1.png
-embeddedImagesRemote:
-  - https://miro.medium.com/max/2000/1*r-qkOyGrghFGU23p6yRmGw@2x.png
 ---
 
-import { getImage, GatsbyImage } from 'gatsby-plugin-image'
-import { StaticImage } from "gatsby-plugin-image"
-
-![](https://miro.medium.com/max/2000/1*r-qkOyGrghFGU23p6yRmGw@2x.png)
+<img src={"https://miro.medium.com/max/2000/1*r-qkOyGrghFGU23p6yRmGw@2x.png"} />
 
 Adding static code analysis tools like [ESLint](https://eslint.org/) is considered a best practice in front-end Ecmascript based project development. These tools make sure that the code we write adheres to a certain standard defined by the team.
 
@@ -57,13 +48,13 @@ Please note that I’m using the following versions at the time of writing this 
 
 1\.  Install Husky
 
-```js
+```bash
 npx husky-init && npm install
 ```
 
 2\. Install lint-staged.
 
-```js
+```bash
 npm install --save-dev lint-staged
 ```
 
@@ -71,7 +62,7 @@ npm install --save-dev lint-staged
 
 1\.  Create a lint-staged configuration file.
 
-```js
+```bash
 touch lint-staged.config.js
 ```
 
@@ -95,7 +86,7 @@ Since I’m using a TypeScript project, I have added `ts` and `tsx`  to the blob
 
 Add the following script under the **script** section in `package.json`.
 
-```js
+```json
 "lint:staged": "lint-staged",
 ```
 
@@ -107,7 +98,7 @@ I want to make sure that before every commit, linting is being run against the s
 
 For this purpose, I can use a pre-commit Git hook. There are other Git hooks that husky supports.
 
-```js
+```bash
 npx husky add .husky/pre-commit "npm run lint:staged"
 ```
 
@@ -127,4 +118,4 @@ Hope you found this blog post useful. Feel free to try this out and if you have 
 
 *   [Source Code](https://github.com/brionmario/gatsby-starter/tree/init-lint-staged-and-husky)
 
-Happy Coding! ❤️
+<center>Happy Coding! ❤️</center>

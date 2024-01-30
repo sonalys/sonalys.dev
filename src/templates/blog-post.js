@@ -4,7 +4,40 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { graphql } from "gatsby"
 import { MDXProvider } from "@mdx-js/react"
-import PrismSyntaxHighlight from "../components/prism-syntax-highlight";
+import "./blog-post.css"
+import Prism from "prismjs";
+
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-go';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-yaml';
+import 'prismjs/components/prism-toml';
+import 'prismjs/components/prism-rust';
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-csharp';
+
+import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
+import 'prismjs/themes/prism-okaidia.css';
+import CopyIcon from "../images/copy.svg";
+import { StaticImage } from "gatsby-plugin-image"
+
+const PreWithCopy = ({ children }) => {
+  const ref = React.useRef();
+  const onClick = () => {
+    navigator.clipboard.writeText(ref.current.children[0].textContent.trimRight('\n'));
+  }
+  return (
+    <pre ref={ref} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', overflow: 'visible' }}>
+      {children}
+      <button class="tooltip">
+        <CopyIcon onClick={onClick} className="copyIcon" />
+        <span class="tooltiptext">Copied!</span>
+      </button>
+    </pre>
+  );
+}
 
 const shortCodes = {
   ol: (props) => {
@@ -21,17 +54,22 @@ const shortCodes = {
       </ul>
     );
   },
-  // pre: ({children, className}) => { return (<div className="code-container"><pre>{children}</pre></div>) },
-  code: ({children, className}) => <PrismSyntaxHighlight className={className ?? "language-rust"}>{children}</PrismSyntaxHighlight>,
+  pre: ({ children }) => <PreWithCopy>{children}</PreWithCopy>,
 };
 
 const PageTemplate = (props) => {
+  React.useEffect(() => {
+    Prism.highlightAll();
+  }, []);
+
   const { pageContext, children } = props;
   const { frontmatter } = pageContext;
-  return <Layout>
+  const formattedDate = new Date(Date.parse(frontmatter.date)).toLocaleString("de-DE", { day: "2-digit", year: "numeric", month: "long" });
+  return <Layout bgColor={"rgb(206, 206, 206)"}>
     <Seo title={frontmatter.title} />
-    <div style={{display: 'flex', flexDirection: 'column', placeItems: 'center'}}>
-      <h1>{frontmatter.title}</h1>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <h1 style={{ marginBottom: 0, textAlign: 'center' }}>{frontmatter.title}</h1>
+      <h3 style={{ marginTop: 0, textAlign: 'center', fontWeight: 'normal' }}>{formattedDate}</h3>
       <MDXProvider components={shortCodes}>
         {children}
       </MDXProvider>
@@ -44,13 +82,9 @@ export const query = graphql`
     mdx(id: {eq: $id}) {
       id
       frontmatter {
-        date(formatString: "YYYY MM Do")
+        date
         title
-        author
-        authorAvatar
         description
-        embeddedImagesRemote
-        embeddedImagesLocal
       }
     }
   }
