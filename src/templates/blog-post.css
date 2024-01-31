@@ -10,6 +10,8 @@
   display: inline-block;
   background: none;
   border: none;
+  padding: 1em;
+  margin: .5em 0;
 }
 
 .tooltip .tooltiptext {

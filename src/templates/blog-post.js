@@ -20,8 +20,8 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
 import 'prismjs/themes/prism-okaidia.css';
+
 import CopyIcon from "../images/copy.svg";
-import { StaticImage } from "gatsby-plugin-image"
 
 const PreWithCopy = ({ children }) => {
   const ref = React.useRef();
@@ -29,13 +29,15 @@ const PreWithCopy = ({ children }) => {
     navigator.clipboard.writeText(ref.current.children[0].textContent.trimRight('\n'));
   }
   return (
-    <pre ref={ref} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', overflow: 'visible' }}>
-      {children}
+    <div className="preContainer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', overflow: 'visible' }}>
+      <pre ref={ref}>
+        {children}
+      </pre>
       <button class="tooltip">
         <CopyIcon onClick={onClick} className="copyIcon" />
         <span class="tooltiptext">Copied!</span>
       </button>
-    </pre>
+    </div>
   );
 }
 
