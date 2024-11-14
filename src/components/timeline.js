@@ -29,6 +29,15 @@ const TimelineCard = ({ title, children}) => {
 const Timeline = () => {
   return <div>
     <ul style={{ textAlign: 'start', listStyle: 'none' }}>
+ <TimelineEntry date="2024.05">
+        <TimelineCard title="Senior Software Engineer">
+          {`[ Go Postgres Azure Kubernetes Temporal Grafana ]
+
+About the company: Sematell is a company providing infrastructure for Customer Support, handling incoming Messages through a ticket system
+
+Here I actively participate in System Architecture, Development of internal and external services, Pair Programming and upbringing new libraries, technologies and solutions`}
+        </TimelineCard>
+      </TimelineEntry>
       <TimelineEntry date="2021.01">
         <TimelineCard title="Senior Software Engineer">
           {`[ Go Mongo NewRelic ReactJS NextJS ElasticSearch Kubernetes Azure ]
