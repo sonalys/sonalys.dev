@@ -4,7 +4,7 @@ layout: single
 ---
 
 <center>
-<img src="/img/me.png" style="border-radius: 50%"/>
+<img src="/images/me.png" style="border-radius: 50%"/>
 </center>
 
 # About Me

@@ -40,7 +40,7 @@ params:
     enabled: true
     title: "Alysson Ribeiro"
     subtitle: "Senior Software Engineer, passionate Golang developer"
-    imageUrl: "img/me.png"
+    imageUrl: "images/me.png"
     imageWidth: 150
     imageHeight: 150
 
