@@ -59,3 +59,8 @@ params:
     includeMatches: true
     threshold: 0.3
     keys: ["title", "permalink", "summary", "content"]
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
