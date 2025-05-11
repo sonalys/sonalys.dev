@@ -64,11 +64,11 @@ toc: false
 
 # About Me
 
-> I'm Alysson Ribeiro, a passionate Software Engineer. 
-> I started programming with 10 years old.
-> From programming RPGs on Visual Basic as a starting point, I jumped into a beautiful and technical world.
-> I am an experienced Golang developer, working with it since 2019 into multiple professional and personal projects.
-> Currently I'm very focused on transactional Domain Driven Design on PostgreSQL.
+> I'm Alysson Ribeiro, a passionate Software Engineer.  
+I started programming at the age of 10.  
+What began with creating RPGs in Visual Basic led me into a beautiful and highly technical world.  
+I've been working with Go (Golang) since 2019 on a variety of professional and personal projects.  
+Currently, I'm deeply focused on transactional Domain-Driven Design.
 
 <br>
 
@@ -192,8 +192,8 @@ li {
       <div class="timeline-card">
         <b>Senior Software Engineer</b><br/>
         <p>[ Go Postgres Azure Kubernetes Temporal Grafana ]</p>
-        <p><strong>About the company:</strong> Sematell is a company providing infrastructure for Customer Support, handling incoming Messages through a ticket system.</p>
-        <p>Here I actively participate in System Architecture, Development of internal and external services, Pair Programming and upbringing new libraries, technologies and solutions.</p>
+        <p><strong>About the company:</strong> Sematell provides infrastructure for customer support, managing incoming messages through a ticket system.</p>
+        <p>Here, I actively contribute to system architecture, develop internal and external services, engage in pair programming, and introduce new libraries, technologies, and solutions.</p>
       </div>
     </div>
     <div class="timelineEntry">
@@ -205,12 +205,10 @@ li {
       <div class="timeline-card">
         <b>Senior Software Engineer</b><br/>
         <p>[ Go Mongo NewRelic ReactJS NextJS ElasticSearch Kubernetes Azure ]</p>
-        <p><strong>About the company:</strong> Rockspoon is a <strong>POS</strong> for restaurants, providing an all-in-one solution for small restaurants in California.</p>
-        <p>At Rockspoon, I participated in <strong>Search</strong>, <strong>Marketplace</strong>, and <strong>Analytics</strong> teams.  
-        We utilized <strong>Go</strong> with <strong>Mongo</strong> for the entire backend.  
-        Most of my job was to architect and implement features for web-services.  
-        Intensive use of <strong>Mongo features</strong>, such as <strong>change-stream</strong>, <strong>pipeline-aggregation</strong>, and
-        <strong>time-series</strong> collections.</p>
+        <p><strong>About the company:</strong> Rockspoon is a <strong>POS</strong> solution for restaurants, offering an all-in-one platform for small businesses in California.</p>
+        <p>At Rockspoon, I contributed to the <strong>Search</strong>, <strong>Marketplace</strong>, and <strong>Analytics</strong> teams.  
+        We used <strong>Go</strong> with <strong>MongoDB</strong> across the entire backend.  
+        My main role involved architecting and implementing web service features, leveraging MongoDB features like <strong>change streams</strong>, <strong>aggregation pipelines</strong>, and <strong>time-series</strong> collections.</p>
       </div>
     </div>
     <div class="timelineEntry">
@@ -221,12 +219,12 @@ li {
       </div>
       <div class="timeline-card">
         <b>Front-end Developer</b><br/>
-        <p>[ C# .NET MVVM Websocket WPF Protobuf AWS ]</p>
-        <p><strong>About the company:</strong> Fluxonaut is a software developed for investors and journalists, with the objective of providing real-time digested information.</p>
-        <p>At Fluxonaut, I was responsible for developing the windows and the <strong>data processing</strong> logic on the <strong>frontend</strong>.  
-        There I learned <strong>C#</strong> and <strong>WPF</strong> framework for displaying <strong>real-time information</strong> for investors.  
-        I refactored legacy code and enhanced memory footprint by 30%.  
-        I also implemented from scratch a pipeline for building and digitally signing the executable.</p>
+        <p>[ C# .NET MVVM WebSocket WPF Protobuf AWS ]</p>
+        <p><strong>About the company:</strong> Fluxonaut is a software platform for investors and journalists, designed to deliver real-time, digestible information.</p>
+        <p>At Fluxonaut, I was responsible for developing UI components and data processing logic on the <strong>frontend</strong>.  
+        I learned <strong>C#</strong> and the <strong>WPF</strong> framework to present <strong>real-time information</strong> to investors.  
+        I refactored legacy code and reduced memory usage by 30%.  
+        Additionally, I implemented a complete build and digital signing pipeline for the executable.</p>
       </div>
     </div>
     <div class="timelineEntry">
@@ -238,11 +236,11 @@ li {
       <div class="timeline-card">
         <b>Full Stack Developer</b><br/>
         <p>[ Go Python ReactJS TypeScript Postgres Prometheus Grafana Kubernetes GCP ]</p>
-        <p><strong>About the company:</strong> Raccoon is a digital marketing company founded by ex-googlers, providing SEO optimization, business intelligence and engineering projects for customers.</p>
-        <p>At Raccoon I first learned <strong>Go</strong>, <strong>Containerization</strong> and <strong>Kubernetes</strong>.  
-        There I joined from day-1 a <strong>video rendering</strong> project for segmentation in ads. Using <strong>youtube api</strong> and <strong>google-ads</strong> to render different ads for different audiences.  
-        We implemented a simple front-end, API and worker connected through a publisher-subscriber to render thousands of videos in parallel on <strong>Google Cloud</strong>.  
-        We also implemented a very robust <strong>observability</strong> stack with <strong>Prometheus</strong> and <strong>Grafana</strong>.</p>
+        <p><strong>About the company:</strong> Raccoon is a digital marketing agency founded by former Googlers, offering SEO optimization, business intelligence, and engineering services.</p>
+        <p>At Raccoon, I learned <strong>Go</strong>, <strong>containerization</strong>, and <strong>Kubernetes</strong>.  
+        I joined a <strong>video rendering</strong> project from day one, focused on ad segmentation. Using the <strong>YouTube API</strong> and <strong>Google Ads</strong>, we generated customized ads for different audiences.  
+        We built a lightweight frontend, API, and worker system connected via pub/sub to render thousands of videos in parallel on <strong>Google Cloud</strong>.  
+        We also developed a robust <strong>observability</strong> stack using <strong>Prometheus</strong> and <strong>Grafana</strong>.</p>
       </div>
     </div>
   </div>
