@@ -15,21 +15,21 @@ sidebar:
 toc: true
 ---
 
-In this post you will learn about the foundational principles and goals for Domain Driven Design ( DDD ).  
-The concepts and approaches described are heavily biased towards my own experience of DDD, meaning my own flavor.  
-I use DDD as a mean for transparent and direct business processes, concentrated on a single layer, making it easy to implement and maintain said processes. 
+In this post, you will learn about the foundational principles and goals of Domain Driven Design (DDD).
+The concepts and approaches described are heavily biased towards my own experience with DDD, reflecting my particular interpretation.
+I use DDD as a means for achieving transparent and direct business processes, concentrated within a single layer, making it easy to implement and maintain said processes.
 
 ## What is Domain Driven Design?
 
-Not quoting anywhere else, DDD is the methodology of focusing on business processes more than their technical counter-parts.  
-Usually when you start programming a new application, the main spotlight is always the data and how to structure it.  
-With DDD, you first want to model what processes are defined, and what does these processes entails.  
-So you always start DDD not focused on Code, but on how your entities will behave.
+In my own words (without directly quoting external sources), DDD is the methodology of focusing on business processes more than on their technical counterparts.
+Usually, when you start programming a new application, the main spotlight is always on the data and how to structure it.
+With DDD, you first want to model what processes are defined, and what these processes entail.
+So, you always start DDD not focused on code, but on how your entities will behave.
 
-The domain is the central piece, it's not reliant on any technology or technical concepts. It doesn't know databases, it doesn't know transactions.
-To have a clean domain, you need to define a non-technical vocabulary for your "Ubiquitous Language".
+The domain is the central piece; it's not reliant on any technology or technical concepts. It doesn't know databases; it doesn't know transactions.
+To have a clean domain, you need to define a non-technical vocabulary for your "Ubiquitous Language."
 
-Example of a very simple domain for a finantial ledger:
+Example of a very simple domain for a financial ledger:
 
 <center>
 
@@ -91,8 +91,8 @@ func NewUser(id int) User {
 }
 
 func (u User) CreateLedger() Ledger {
-    return Ledger{ 
-        Owner: u.ID, 
+    return Ledger{
+        Owner: u.ID,
         Members: []LedgerMember{
             { UserID: u.ID },
         },
@@ -115,11 +115,11 @@ func (l *Ledger) AddMember(u User) {
 }
 ```
 
-In this example, all our modeled processes occurs in memory, we have a deterministic state machine controlling all possible transitions.
-This is initially trivial, when the cardinality of your entities is not high. But if you start to consider for example, that the Ledger might have millions of entries,
+In this example, all our modeled processes occur in memory; we have a deterministic state machine controlling all possible transitions.
+This is initially trivial when the cardinality of your entities is not high. But if you start to consider, for example, that the Ledger might have millions of entries,
 you might want to decouple the Ledger from the Expenses.
 
-Let's imagine an example where ledger still has some control over expenses, while not loading millions of rows into memory.
+Let's imagine an example where the ledger still has some control over expenses, while not loading millions of rows into memory.
 
 ```go
 // previous code
@@ -151,24 +151,24 @@ func (l *Ledger) AddExpense() (*Expense, error) {
 // further code
 ```
 
-With this change now you don't have to load expenses into memory, and selectively control any given expenses from the domain.  
-There is only one potential problem, how do we keep the state valid inside the persistence layer?
+With this change, now you don't have to load expenses into memory, and can selectively control any given expenses from the domain.
+There is only one potential problem: how do we keep the state valid inside the persistence layer?
 
 ## Transactionality
 
-Now moving further into our application, we consider that we have the previous domain implemented.
-The Ledger entity acts as a controller for the expenses, and it has a count for it's expenses.
+Now, moving further into our application, we consider that we have the previous domain implemented.
+The Ledger entity acts as a controller for the expenses, and it has a count for its expenses.
 
-If we consider that multiple expenses can be created in parallel, we want to avoid loading dirty states or having race condition on these entities.
-What I normally do is I use the ledger as a lock, inside a database transaction.
+If we consider that multiple expenses can be created in parallel, we want to avoid loading dirty states or having race conditions on these entities.
+What I normally do is use the ledger as a lock, inside a database transaction.
 
-If you consider PostgreSQL for example, you can lock the ledger row with:
+If you consider PostgreSQL, for example, you can lock the ledger row with:
 
 ```sql
-SELECT * FROM ledgers WHERE id = $1 LOCK FOR UPDATE;
+SELECT * FROM ledgers WHERE id = $1 FOR UPDATE;
 ```
 
-Bringing the transaction inside the application layer, you ensure that there are no other queries mutating the state while the domain operations are happening.  
+Bringing the transaction into the application layer, you ensure that there are no other queries mutating the state while the domain operations are happening.
 Let's introduce a transaction in the Application layer:
 
 ```go
@@ -212,9 +212,9 @@ func (a Application) CreateExpense(ctx context.Context, req CreateExpenseRequest
 }
 ```
 
-With this approach, you have transactionality, meaning you either do the domain operations or not, while fully controlling the state from the domain layer.  
-The application layer is still unaware of database specific infrastructure, only having the concept of a transactional database.
+With this approach, you have transactionality, meaning you either complete the domain operations or none of them are applied (they are rolled back), while fully controlling the state from the domain layer.
+The application layer is still unaware of database-specific infrastructure, only having the concept of a transactional database.
 
 ### Conclusion
 
-Let me know about your thoughts, send me an email and let's talk.
+Let me know your thoughts; send me an email and let's talk.
