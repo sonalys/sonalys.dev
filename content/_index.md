@@ -220,8 +220,8 @@ li {
           <span class="skill-chip">#Temporal</span>
           <span class="skill-chip">#Grafana</span>
         </div>
-        <p><strong>About the company:</strong> Sematell provides infrastructure for customer support, managing incoming messages through a ticket system.</p>
-        <p>Here, I actively contribute to system architecture, develop internal and external services, engage in pair programming, and introduce new libraries, technologies, and solutions.</p>
+        <p>Sematell provides infrastructure for customer support, managing incoming messages through a ticket system.</p>
+        <p>Here, I actively contribute to system architecture, develop internal services, engage in pair programming, and introduce new libraries, technologies, and solutions.</p>
       </div>
     </div>
     <div class="timelineEntry">
@@ -242,10 +242,11 @@ li {
           <span class="skill-chip">#Kubernetes</span>
           <span class="skill-chip">#Azure</span>
         </div>
-        <p><strong>About the company:</strong> Rockspoon is a <strong>POS</strong> solution for restaurants, offering an all-in-one platform for small businesses in California.</p>
-        <p>At Rockspoon, I contributed to the <strong>Search</strong>, <strong>Marketplace</strong>, and <strong>Analytics</strong> teams.  
-        We used <strong>Go</strong> with <strong>MongoDB</strong> across the entire backend.  
-        My main role involved architecting and implementing web service features, leveraging MongoDB features like <strong>change streams</strong>, <strong>aggregation pipelines</strong>, and <strong>time-series</strong> collections.</p>
+        <p>Rockspoon is a POS solution for restaurants, offering an all-in-one platform for small businesses in California.</p>
+        <p>At Rockspoon, I contributed to the Search, Marketplace, and Analytics teams.<br>
+        We used Go with MongoDB across the entire backend.<br>
+        My main role involved architecting and implementing web service features, leveraging MongoDB features like change streams, aggregation pipelines, and time-series collections.</p>
+        I worked mentoring junior developers, developing features across multiple teams, like Catalog, Ordering, Analytics and HR, and ensuring product functionality and efficiency using distributed telemetry.
       </div>
     </div>
     <div class="timelineEntry">
@@ -265,11 +266,12 @@ li {
           <span class="skill-chip">#Protobuf</span>
           <span class="skill-chip">#AWS</span>
         </div>
-        <p><strong>About the company:</strong> Fluxonaut is a software platform for investors and journalists, designed to deliver real-time, digestible information.</p>
-        <p>At Fluxonaut, I was responsible for developing UI components and data processing logic on the <strong>frontend</strong>.  
-        I learned <strong>C#</strong> and the <strong>WPF</strong> framework to present <strong>real-time information</strong> to investors.  
-        I refactored legacy code and reduced memory usage by 30%.  
-        Additionally, I implemented a complete build and digital signing pipeline for the executable.</p>
+        <p>Fluxonaut is a software platform for investors and journalists, designed to deliver real-time, digestible information.</p>
+        <p>At Fluxonaut, I was responsible for developing UI components and data processing logic on the frontend.<br>
+        I learned C# and the WPF framework to present real-time information to investors.<br>
+        Challenged by a different paradigm, where your code is not sandboxed into a very controlled environment, I had to develop long-running windows applications.<br>
+        I refactored legacy code, introduced better maintainability thorugh automated tests, deployment and linter configurations. Optimized and reduced memory footprint by 30%.<br>
+        Streamlined the deployment of the certificate signed installation bundle for the application on github actions.</p>
       </div>
     </div>
     <div class="timelineEntry">
@@ -291,11 +293,12 @@ li {
           <span class="skill-chip">#Kubernetes</span>
           <span class="skill-chip">#GCP</span>
         </div>
-        <p><strong>About the company:</strong> Raccoon is a digital marketing agency founded by former Googlers, offering SEO optimization, business intelligence, and engineering services.</p>
-        <p>At Raccoon, I learned <strong>Go</strong>, <strong>containerization</strong>, and <strong>Kubernetes</strong>.  
-        I joined a <strong>video rendering</strong> project from day one, focused on ad segmentation. Using the <strong>YouTube API</strong> and <strong>Google Ads</strong>, we generated customized ads for different audiences.  
-        We built a lightweight frontend, API, and worker system connected via pub/sub to render thousands of videos in parallel on <strong>Google Cloud</strong>.  
-        We also developed a robust <strong>observability</strong> stack using <strong>Prometheus</strong> and <strong>Grafana</strong>.</p>
+        <p>Raccoon is a digital marketing agency founded by former Googlers, offering SEO optimization, business intelligence, and engineering services.</p>
+        <p>At Raccoon, I learned Python, Go, Containerization, and Kubernetes.<br>
+        Raccoon offered a really professional and well structured Micro-Services oriented environment, with a fully managed cluster, where I could learn the best practices from.<br>
+        I joined a video rendering project from day one, focused on ad segmentation. Using the YouTube API and Google Ads, we generated customized ads for different audiences.<br>
+        We built a lightweight frontend, API, and worker system connected via pub/sub to render thousands of videos in parallel on Google Cloud.<br>
+        We also developed a robust observability stack using Prometheus and Grafana.</p>
       </div>
     </div>
   </div>
