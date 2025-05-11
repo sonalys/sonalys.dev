@@ -78,14 +78,10 @@ type (
         LedgerID int
     }
 
-    LedgerMember struct {
-        UserID int
-    }
-
     Ledger struct {
         ID int
         Owner int
-        Members []LedgerMember
+        Members []int
         Expenses []Expense
     }
 )
@@ -97,9 +93,7 @@ func NewUser(id int) User {
 func (u User) CreateLedger() Ledger {
     return Ledger{
         Owner: u.ID,
-        Members: []LedgerMember{
-            { UserID: u.ID },
-        },
+        Members: []LedgerMember{u.ID},
     }
 }
 
@@ -115,7 +109,7 @@ func (l *Ledger) AddExpense() Expense {
 }
 
 func (l *Ledger) AddMember(u User) {
-    l.Members = append(l.Members, LedgerMember{ UserID: u.ID })
+    l.Members = append(l.Members, u.ID)
 }
 ```
 
