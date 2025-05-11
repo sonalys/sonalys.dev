@@ -51,7 +51,7 @@ toc: false
 
 <div class="profile">
     <div class="profile_inner">
-        <img draggable="false" src="http://localhost:1313/images/me.png" alt="profile image" title="" height="150" width="150" style="border-radius: 50%;">
+        <img draggable="false" src="/images/me.png" alt="profile image" title="" height="150" width="150" style="border-radius: 50%;">
         <h1>Alysson Ribeiro</h1>
         <span>Senior Software Engineer, passionate Golang developer</span>
         <div class="social-icons">
