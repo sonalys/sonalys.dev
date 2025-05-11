@@ -30,6 +30,9 @@ menu:
 params:
   dateFormat: "2 January 2006"
 
+  theme:
+    displayToggle: false
+
   navbar:
     displayTitle: false
     displayLogo: false
