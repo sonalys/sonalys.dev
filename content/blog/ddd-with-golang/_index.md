@@ -1,6 +1,6 @@
 ---
 title: General Introduction to Domain Driven Design
-date: 05 May 2025
+date: 11 May 2025
 authors:
   - name: Alysson Ribeiro
     link: https://github.com/sonalys
@@ -31,6 +31,8 @@ To have a clean domain, you need to define a non-technical vocabulary for your "
 
 Example of a very simple domain for a financial ledger:
 
+### Example
+
 <center>
 
 ```mermaid
@@ -58,6 +60,8 @@ classDiagram
 ```
 
 </center>
+
+## Domain
 
 So let's write a domain layer for this example:
 
@@ -119,6 +123,8 @@ In this example, all our modeled processes occur in memory; we have a determinis
 This is initially trivial when the cardinality of your entities is not high. But if you start to consider, for example, that the Ledger might have millions of entries,
 you might want to decouple the Ledger from the Expenses.
 
+### Example for high cardinality
+
 Let's imagine an example where the ledger still has some control over expenses, while not loading millions of rows into memory.
 
 ```go
@@ -154,13 +160,15 @@ func (l *Ledger) AddExpense() (*Expense, error) {
 With this change, now you don't have to load expenses into memory, and can selectively control any given expenses from the domain.
 There is only one potential problem: how do we keep the state valid inside the persistence layer?
 
-## Transactionality
+## Application and Transactionality
 
 Now, moving further into our application, we consider that we have the previous domain implemented.
 The Ledger entity acts as a controller for the expenses, and it has a count for its expenses.
 
 If we consider that multiple expenses can be created in parallel, we want to avoid loading dirty states or having race conditions on these entities.
 What I normally do is use the ledger as a lock, inside a database transaction.
+
+### Postgres lock example
 
 If you consider PostgreSQL, for example, you can lock the ledger row with:
 
@@ -215,6 +223,6 @@ func (a Application) CreateExpense(ctx context.Context, req CreateExpenseRequest
 With this approach, you have transactionality, meaning you either complete the domain operations or none of them are applied (they are rolled back), while fully controlling the state from the domain layer.
 The application layer is still unaware of database-specific infrastructure, only having the concept of a transactional database.
 
-### Conclusion
+## Conclusion
 
-Let me know your thoughts; send me an email and let's talk.
+Let me know your thoughts; send me an [email](mailto:me@sonalys.dev) and let's talk.
