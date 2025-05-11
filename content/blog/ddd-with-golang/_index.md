@@ -17,7 +17,7 @@ toc: true
 
 In this post, you will learn about the foundational principles and goals of Domain Driven Design (DDD).
 The concepts and approaches described are heavily biased towards my own experience with DDD, reflecting my particular interpretation.
-I use DDD as a means for achieving transparent and direct business processes, concentrated within a single layer, making it easy to implement and maintain said processes.
+DDD promotes a layered architecture (e.g., Domain, Application, Infrastructure, Presentation/UI). While the core business logic resides in the Domain Layer.
 
 ## What is Domain Driven Design?
 
@@ -119,7 +119,7 @@ func (l *Ledger) AddMember(u User) {
 }
 ```
 
-In this example, all our modeled processes occur in memory; we have a deterministic state machine controlling all possible transitions.
+In this example, all our modeled processes occur in memory; we have a state machine controlling all possible transitions.
 This is initially trivial when the cardinality of your entities is not high. But if you start to consider, for example, that the Ledger might have millions of entries,
 you might want to decouple the Ledger from the Expenses.
 
@@ -144,7 +144,7 @@ func (l *Ledger) AddExpense() (*Expense, error) {
         return nil, fmt.Errorf("expense count exceeded")
     }
 
-    expense := *Expense{
+    expense := &Expense{
         ID: 1,
         LedgerID: l.ID,
     }
@@ -158,7 +158,9 @@ func (l *Ledger) AddExpense() (*Expense, error) {
 ```
 
 With this change, now you don't have to load expenses into memory, and can selectively control any given expenses from the domain.
-There is only one potential problem: how do we keep the state valid inside the persistence layer?
+There is only one potential problem: 
+
+* How do we keep transactional consistency when an operation spans multiple objects or updates an aggregate and its related data?
 
 ## Application and Transactionality
 
@@ -202,8 +204,8 @@ type (
 
 // Application definition...
 
-func (a Application) CreateExpense(ctx context.Context, req CreateExpenseRequest) {
-    _ = a.db.Transaction(ctx, func(db Database) error {
+func (a Application) CreateExpense(ctx context.Context, req CreateExpenseRequest) error {
+    return a.db.Transaction(ctx, func(db Database) error {
         ledger := db.LedgerRepository().Load(ctx, req.LedgerID)
 
         expense, err := ledger.AddExpense()
