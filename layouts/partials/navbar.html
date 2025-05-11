@@ -25,6 +25,8 @@
       {{- if (.Site.Params.navbar.displayTitle | default true) }}
         <span class="hx:mr-2 hx:font-extrabold hx:inline hx:select-none" title="{{ .Site.Title }}">{{- .Site.Title -}}</span>
       {{- end }}
+
+      {{- partial "theme-toggle.html" (dict "hideLabel" true) -}}
     </a>
 
     {{- $currentPage := . -}}
@@ -61,9 +63,6 @@
         {{- end -}}
       {{- end -}}
     {{- end -}}
-
-    {{- partial "theme-toggle.html" (dict "hideLabel" true) -}}
-
 
     <button type="button" aria-label="Menu" class="hamburger-menu hx:cursor-pointer hx:-mr-2 hx:rounded-sm hx:p-2 hx:active:bg-gray-400/20 hx:md:hidden">
       {{- partial "utils/icon.html" (dict "name" "hamburger-menu" "attributes" "height=24") -}}
