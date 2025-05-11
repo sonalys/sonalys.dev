@@ -26,6 +26,27 @@ toc: false
   gap: 20px;
   margin: 20px;
 }
+
+/* Chip Styles -- ADDED */
+.skills-chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* Space between chips */
+  margin-top: 0.5em; /* Consistent with <p> margins in this context */
+  margin-bottom: 0.5em; /* Consistent with <p> margins in this context */
+}
+
+.skill-chip {
+  background-color: color-mix(in srgb, var(--primary, #007bff) 10%, #f0f0f0 90%); /* Light background, slightly tinted with primary color */
+  color: color-mix(in srgb, var(--primary, #007bff) 70%, #343a40 30%); /* Text color, darker and influenced by primary color */
+  padding: 4px 10px;
+  border-radius: 16px; /* Pill shape */
+  font-size: 0.85em;
+  font-weight: 500;
+  line-height: 1.4;
+  border: 1px solid color-mix(in srgb, var(--primary, #007bff) 25%, #dee2e6 75%); /* Subtle border, also tinted */
+  white-space: nowrap; /* Prevent chips from breaking mid-word */
+}
 </style>
 
 <div class="profile">
@@ -191,7 +212,14 @@ li {
       </div>
       <div class="timeline-card">
         <b>Senior Software Engineer</b><br/>
-        <p>[ Go Postgres Azure Kubernetes Temporal Grafana ]</p>
+        <div class="skills-chips-container">
+          <span class="skill-chip">#Go</span>
+          <span class="skill-chip">#Postgres</span>
+          <span class="skill-chip">#Azure</span>
+          <span class="skill-chip">#Kubernetes</span>
+          <span class="skill-chip">#Temporal</span>
+          <span class="skill-chip">#Grafana</span>
+        </div>
         <p><strong>About the company:</strong> Sematell provides infrastructure for customer support, managing incoming messages through a ticket system.</p>
         <p>Here, I actively contribute to system architecture, develop internal and external services, engage in pair programming, and introduce new libraries, technologies, and solutions.</p>
       </div>
@@ -204,7 +232,16 @@ li {
       </div>
       <div class="timeline-card">
         <b>Senior Software Engineer</b><br/>
-        <p>[ Go Mongo NewRelic ReactJS NextJS ElasticSearch Kubernetes Azure ]</p>
+        <div class="skills-chips-container">
+          <span class="skill-chip">#Go</span>
+          <span class="skill-chip">#Mongo</span>
+          <span class="skill-chip">#NewRelic</span>
+          <span class="skill-chip">#ReactJS</span>
+          <span class="skill-chip">#NextJS</span>
+          <span class="skill-chip">#ElasticSearch</span>
+          <span class="skill-chip">#Kubernetes</span>
+          <span class="skill-chip">#Azure</span>
+        </div>
         <p><strong>About the company:</strong> Rockspoon is a <strong>POS</strong> solution for restaurants, offering an all-in-one platform for small businesses in California.</p>
         <p>At Rockspoon, I contributed to the <strong>Search</strong>, <strong>Marketplace</strong>, and <strong>Analytics</strong> teams.  
         We used <strong>Go</strong> with <strong>MongoDB</strong> across the entire backend.  
@@ -219,7 +256,15 @@ li {
       </div>
       <div class="timeline-card">
         <b>Front-end Developer</b><br/>
-        <p>[ C# .NET MVVM WebSocket WPF Protobuf AWS ]</p>
+        <div class="skills-chips-container">
+          <span class="skill-chip">#C#</span>
+          <span class="skill-chip">#.NET</span>
+          <span class="skill-chip">#MVVM</span>
+          <span class="skill-chip">#WebSocket</span>
+          <span class="skill-chip">#WPF</span>
+          <span class="skill-chip">#Protobuf</span>
+          <span class="skill-chip">#AWS</span>
+        </div>
         <p><strong>About the company:</strong> Fluxonaut is a software platform for investors and journalists, designed to deliver real-time, digestible information.</p>
         <p>At Fluxonaut, I was responsible for developing UI components and data processing logic on the <strong>frontend</strong>.  
         I learned <strong>C#</strong> and the <strong>WPF</strong> framework to present <strong>real-time information</strong> to investors.  
@@ -235,7 +280,17 @@ li {
       </div>
       <div class="timeline-card">
         <b>Full Stack Developer</b><br/>
-        <p>[ Go Python ReactJS TypeScript Postgres Prometheus Grafana Kubernetes GCP ]</p>
+        <div class="skills-chips-container">
+          <span class="skill-chip">#Go</span>
+          <span class="skill-chip">#Python</span>
+          <span class="skill-chip">#ReactJS</span>
+          <span class="skill-chip">#TypeScript</span>
+          <span class="skill-chip">#Postgres</span>
+          <span class="skill-chip">#Prometheus</span>
+          <span class="skill-chip">#Grafana</span>
+          <span class="skill-chip">#Kubernetes</span>
+          <span class="skill-chip">#GCP</span>
+        </div>
         <p><strong>About the company:</strong> Raccoon is a digital marketing agency founded by former Googlers, offering SEO optimization, business intelligence, and engineering services.</p>
         <p>At Raccoon, I learned <strong>Go</strong>, <strong>containerization</strong>, and <strong>Kubernetes</strong>.  
         I joined a <strong>video rendering</strong> project from day one, focused on ad segmentation. Using the <strong>YouTube API</strong> and <strong>Google Ads</strong>, we generated customized ads for different audiences.  
