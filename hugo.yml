@@ -17,10 +17,6 @@ menu:
       name: "Search"
       url: "/search/"
       weight: 3
-    - identifier: "about"
-      name: "About me"
-      url: "/about/"
-      weight: 4
 
 outputs:
   home:
@@ -30,10 +26,8 @@ outputs:
 
 params:
   author: "Alysson Ribeiro"
+  subtitle: Hello World!
   showReadingTime: true
-  showSearch: true
-  showSocialIcons: true
-  showCodeCopyButtons: true
   contact:
     email: me@sonalys.dev
   profileMode:

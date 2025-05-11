@@ -1,24 +1,18 @@
----
-hideMeta: true
-layout: single
----
-
-<center>
-<img src="/images/me.png" style="border-radius: 50%"/>
-</center>
-
 # About Me
 
-I'm Alysson Ribeiro, a passionate Software Engineer.  
-Having started programming at 10 years old, from programming RPGs on Visual Basic I jumped into a beautiful and technical world.
+<br>
 
-I am an experienced Golang developer, working with it since 2019 into multiple professional and personal projects.
 
-Currently I'm very focused on transactional Domain Driven Design on PostgreSQL.
+> I'm Alysson Ribeiro, a passionate Software Engineer. 
+> I started programming with 10 years old.
+> From programming RPGs on Visual Basic as a starting point, I jumped into a beautiful and technical world.
+> I am an experienced Golang developer, working with it since 2019 into multiple professional and personal projects.
+> Currently I'm very focused on transactional Domain Driven Design on PostgreSQL.
 
-## Career
+<br>
 
-      
+# Career
+
 <style>
 /* General page style, likely unrelated to timeline structure itself, kept from original */
 li {
@@ -34,8 +28,8 @@ li {
 
 .timeline {
   display: grid;
-  grid-template-columns: max-content auto 1fr;
-  column-gap: 20px;
+  grid-template-columns: auto auto 1fr;
+  column-gap: 15px;
   /* Use the variable if defined, otherwise hardcode. This gap separates cards. */
   row-gap: 2rem; /* or var(--timeline-row-gap); */
   align-items: stretch; 
