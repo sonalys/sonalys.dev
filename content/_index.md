@@ -86,7 +86,7 @@ toc: false
 # About Me
 
 > I'm Alysson Ribeiro, a passionate Software Engineer.  
-I started programming at the age of 10.  
+I started programming at the age of 12.  
 What began with creating RPGs in Visual Basic led me into a beautiful and highly technical world.  
 I've been working with Go (Golang) since 2019 on a variety of professional and personal projects.  
 Currently, I'm deeply focused on transactional Domain-Driven Design.
