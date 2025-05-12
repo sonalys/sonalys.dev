@@ -30,6 +30,9 @@ menu:
 params:
   dateFormat: "2 January 2006"
 
+  page:
+    width: wide
+
   theme:
     displayToggle: false
 
