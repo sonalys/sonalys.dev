@@ -164,9 +164,9 @@ The Ledger entity acts as a controller for the expenses, and it has a count for 
 If we consider that multiple expenses can be created in parallel, we want to avoid loading dirty states or having race conditions on these entities.
 What I normally do is use the ledger as a lock, inside a database transaction.
 
-### Postgres lock example
+### Row lock example
 
-If you consider PostgreSQL, for example, you can lock the ledger row with:
+If you consider Postgres, for example, you can lock the ledger row with:
 
 ```sql
 SELECT * FROM ledgers WHERE id = $1 FOR UPDATE;
