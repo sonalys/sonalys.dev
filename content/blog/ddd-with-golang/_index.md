@@ -172,7 +172,15 @@ If you consider Postgres, for example, you can lock the ledger row with:
 SELECT * FROM ledgers WHERE id = $1 FOR UPDATE;
 ```
 
-Bringing the transaction into the application layer, you ensure that there are no other queries mutating the state while the domain operations are happening.
+There are two approaches into trying to bring transactionality to the domain layer:
+* You make repositories aware of the bounded context, they do not work with single entities, but with multiple entities at the same time.
+  * This is a bit complicated on the persistence side, as you have to handle any 1 to many relationships with care, while domain might not inform you exactly what changed
+* The concept of a transactional database is brought upon the application layer, so the application would be able to handle updating multiple entities at the same time
+  * This is also not a flawless solution, while you can mistakenly not save updated entities, breaking the bounded context constraints
+  * I will be working in the future to design more straight forward API interfaces that help avoiding commiting such mistakes
+
+For this blog post specifically, I will be bringing the concept of a transactional database to the application layer.  
+In the following example, we ensure that there are no other queries mutating the state, by using row locks, while the domain operations are happening.
 Let's introduce a transaction in the Application layer:
 
 ```go
