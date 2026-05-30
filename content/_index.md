@@ -222,7 +222,8 @@ li {
           <span class="skill-chip">#Grafana</span>
         </div>
         <p>Sematell provides infrastructure for customer support, managing incoming messages through a ticket system.</p>
-        <p>Here, I actively contribute to system architecture, develop internal services, engage in pair programming, and introduce new libraries, technologies, and solutions.</p>
+        <p>Here, I actively contribute to system architecture, develop internal services, engage in pair programming, and introduce new libraries, technologies, and solutions.
+            I helped develop the durable workflow pipeline, the in-house developed rule engine for dynamic business processes and integrating AI with humans in the loop for our tenants' workflows.
       </div>
     </div>
     <div class="timelineEntry">
