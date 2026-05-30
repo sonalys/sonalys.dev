@@ -16,7 +16,7 @@ toc: true
 ---
 
 Here you will be briefly introduced to the basic concepts around Durable Workflow Execution.
-I will go through the problem, the proposed solution, and a basic Go implementation and library recommendations.
+I will go through the problem, the proposed solution, and a basic Go implementation and framework recommendations.
 
 ## What is Durable Execution?
 
@@ -327,4 +327,11 @@ func DeliverOrderActivityV2(ctx context.Context, cmd OrderCommand, payment Payme
 
 ## Conclusion
 
-Durable workflow execution is about making long-running processes resilient, consistent, and replayable. If you want to talk through a real implementation or compare tools and patterns for Go, send me an [email](mailto:me@sonalys.dev).
+Durable workflow execution is about making long-running processes resilient, consistent, and replayable. 
+
+### References
+
+* [Temporal.io](https://temporal.io/)
+* [dbos](https://github.com/dbos-inc/dbos-transact-golang)
+
+If you want to talk through a real implementation or compare tools and patterns for Go, send me an [email](mailto:me@sonalys.dev).
