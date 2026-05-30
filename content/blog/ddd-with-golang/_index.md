@@ -169,7 +169,7 @@ What I normally do is use the ledger as a lock, inside a database transaction.
 If you consider Postgres, for example, you can lock the ledger row with:
 
 ```sql
-SELECT * FROM ledgers WHERE id = $1 FOR UPDATE;
+SELECT * FROM ledgers WHERE id = ? FOR UPDATE;
 ```
 
 There are two approaches into trying to bring transactionality to the domain layer:
