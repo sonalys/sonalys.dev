@@ -222,8 +222,8 @@ li {
           <span class="skill-chip">#Grafana</span>
         </div>
         <p>Sematell provides infrastructure for customer support, managing incoming messages through a ticket system.</p>
-        <p>Here, I actively contribute to system architecture, develop internal services, engage in pair programming, and introduce new libraries, technologies, and solutions.
-            I helped develop the durable workflow pipeline, the in-house developed rule engine for dynamic business processes and integrating AI with humans in the loop for our tenants' workflows.
+        <p>Here, I actively contribute to system architecture, develop internal services, engage in pair programming, and introduce new libraries, technologies, and solutions.<br>
+        I helped develop the durable workflow pipeline, the in-house developed rule engine for dynamic business processes and integrating AI with humans in the loop for our tenants' workflows.</p>
       </div>
     </div>
     <div class="timelineEntry">
@@ -247,8 +247,8 @@ li {
         <p>Rockspoon is a POS solution for restaurants, offering an all-in-one platform for small businesses in California.</p>
         <p>At Rockspoon, I contributed to the Search, Marketplace, and Analytics teams.<br>
         We used Go with MongoDB across the entire backend.<br>
-        My main role involved architecting and implementing web service features, leveraging MongoDB features like change streams, aggregation pipelines, and time-series collections.</p>
-        I worked mentoring junior developers, developing features across multiple teams, like Catalog, Ordering, Analytics and HR, and ensuring product functionality and efficiency using distributed telemetry.
+        My main role involved architecting and implementing web service features, leveraging MongoDB features like change streams, aggregation pipelines, and time-series collections.<br>
+        I worked mentoring junior developers, developing features across multiple teams, like Catalog, Ordering, Analytics and HR, and ensuring product functionality and efficiency using distributed telemetry.</p>
       </div>
     </div>
     <div class="timelineEntry">
