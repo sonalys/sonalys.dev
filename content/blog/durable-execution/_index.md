@@ -45,6 +45,18 @@ The focus here are on two main aspects:
 We do not want to leave the order in limbo after payment.
 We want to refund payment if inventory cannot mark the items for delivery.
 
+```mermaid
+flowchart TD
+    A[Customer adds item to cart]
+    B[Reserve inventory]
+    C[Compute checkout]
+    D[Charge payment]
+    E[Deliver order]
+    A --> B --> C --> D --> E
+    D -->|payment fails| F[Compensate / refund]
+    F --> G[End with consistency]
+```
+
 ## Transactional Boundaries
 
 Each step listed before must be idempotent units-of-work. You must design your API in a way that any step running again will not cause side-effects. This is required for keeping the state consistent.  
@@ -90,6 +102,26 @@ For race conditions, the solution is to have a mutex or lock for only allowing l
 Since we are dealing with ephemeral services, we cannot control when the controller will lose the state.
 It's essential that we have an underlying database capable of storing and recovering the state.
 
+```mermaid
+sequenceDiagram
+    participant W as Workflow
+    participant A as Activity Worker
+    participant S as Event Store
+    W->>A: ReserveInventory(cmd)
+    A-->>W: ReservationResult
+    W->>S: Persist event: InventoryReserved
+    W->>A: ComputeCheckout(cmd, reservation)
+    A-->>W: CheckoutResult
+    W->>S: Persist event: CheckoutComputed
+    W->>A: ChargePayment(cmd, checkout)
+    A-->>W: PaymentConfirmation
+    W->>S: Persist event: PaymentConfirmed
+    W->>A: DeliverOrder(cmd, payment)
+    A-->>W: DeliveryConfirmation
+    W->>S: Persist event: OrderDelivered
+    S-->>W: Reconstruct state on replay
+```
+
 To me, the best choice is to use event sourcing, since it provides auditing and great visibility of the process as a whole.  
 Event sourcing would mean that every atomic operation, or step, that happens, is registered as an event.  
 This event ledger can be used to reconstruct the exact latest state of the process.
@@ -100,6 +132,18 @@ This event ledger can be used to reconstruct the exact latest state of the proce
 2. Inventory reserved items: `{type: inventoryItemReserved, item: {id, quantity, ...}}`
 3. Checkout computed: `{type: checkoutComputed, checkout: { id, subTotal, taxes, total, ...}}`
 4. etc.
+
+```mermaid
+stateDiagram-v2
+    [*] --> OrderCreated
+    OrderCreated --> InventoryReserved
+    InventoryReserved --> CheckoutComputed
+    CheckoutComputed --> Paid
+    Paid --> Delivered
+    Paid --> Compensated : inventory fails
+    Compensated --> [*]
+    Delivered --> [*]
+```
 
 From this list of events we should notice two things:
 * Events record steps that already happened
@@ -133,6 +177,19 @@ Certain frameworks, like Temporal.io, use a helper step function to grab the ver
 3. If the helper function is not the latest event, it will know it's using a previously unversioned step and defaults to the minimum version
 
 This allows the steps to retroactively be versioned, keeping determinism and introducing new step versions when they weren't executed yet.
+
+```mermaid
+sequenceDiagram
+    participant WF as Workflow
+    participant V as Version Helper
+    participant A as Activity
+    WF->>V: GetVersion("delivery-step", default=1, 2)
+    alt version 1
+        WF->>A: DeliverOrderActivityV1(cmd, payment)
+    else version 2
+        WF->>A: DeliverOrderActivityV2(cmd, payment)
+    end
+```
 
 In the example below, the workflow function orchestrates the process and each step is implemented as a separate activity function. Each activity receives the previous step's output and returns a typed state object.
 
@@ -270,4 +327,4 @@ func DeliverOrderActivityV2(ctx context.Context, cmd OrderCommand, payment Payme
 
 ## Conclusion
 
-Let me know your thoughts; send me an [email](mailto:me@sonalys.dev) and let's talk.
+Durable workflow execution is about making long-running processes resilient, consistent, and replayable. If you want to talk through a real implementation or compare tools and patterns for Go, send me an [email](mailto:me@sonalys.dev).
